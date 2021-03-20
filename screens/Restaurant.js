@@ -10,6 +10,7 @@ import {
   Touchable,
 } from 'react-native';
 import {icons, FONTS, SIZES, COLORS} from '../constants';
+import {OrderDelivery} from '../screens';
 
 const Restaurant = ({route, navigation}) => {
   const scrollX = new Animated.Value(0);
@@ -363,7 +364,13 @@ const Restaurant = ({route, navigation}) => {
                 padding: SIZES.padding,
                 borderRadius: SIZES.radius,
                 backgroundColor: COLORS.primary,
-              }}>
+              }}
+              onPress={() =>
+                navigation.navigate('OrderDelivery', {
+                  restaurant: restaurant,
+                  currentLocation: currentLocation,
+                })
+              }>
               <Text style={{color: COLORS.white, ...FONTS.h2}}>Order</Text>
             </TouchableOpacity>
           </View>
